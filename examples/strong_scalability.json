@@ -1,0 +1,34 @@
+{
+	"benchmark": {
+		"name": "matvec_strong",
+		"description": "Matrix-Vector multiplication with strong accesses",
+		"path": "/gpfs/projects/bsc28/nanos_clusters/src/benchmarks/matvec_strong/matvec",
+		"programming_model": "ompss"
+	},
+	"experiment": {
+		"type": "strong",
+		"repetitions": 4,
+		"debug": true,
+		"hardware" : {
+			"nodes" : [1, 2, 4, 8, 16],
+			"cpus" : [16],
+			"cartesian" : true
+		},
+		
+		"configurations" : [
+			{
+				"args" : ["65536", "65536", "64"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+
+			},
+			{
+				"args" : ["65536", "65536", "128"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			}
+		]
+	}
+}
