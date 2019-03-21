@@ -8,7 +8,7 @@
 	"experiment": {
 		"type": "strong",
 		"repetitions": 4,
-		"debug": true,
+		"debug": false,
 		"hardware" : {
 			"nodes" : [1, 2, 4, 8, 16],
 			"cpus" : [16],
@@ -21,10 +21,33 @@
 				"distributed_memory" : "40GB",
 				"local_memory" : "10GB",
 				"time_limit_minutes" : 4
-
 			},
 			{
 				"args" : ["65536", "65536", "128"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "256"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "512"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "1024"],
+				"distributed_memory" : "40GB",
+				"local_memory" : "10GB",
+				"time_limit_minutes" : 4
+			},
+			{
+				"args" : ["65536", "65536", "2048"],
 				"distributed_memory" : "40GB",
 				"local_memory" : "10GB",
 				"time_limit_minutes" : 4
