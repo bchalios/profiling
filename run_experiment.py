@@ -10,10 +10,10 @@ def get_bsc_machine():
     """Returns a string with the BSC machine name"""
     return os.environ['BSC_MACHINE']
 
-def create_results_directory(machine, experiment_type, prog_model):
+def create_results_directory(machine, queue, experiment_type, prog_model):
     """Creates (if not existing) the results directory and returns the name"""
     
-    resdir = 'results/{0}/{1}/{2}'.format(machine, experiment_type, prog_model)
+    resdir = 'results/{0}/{1}/{2}/{3}'.format(machine, queue, experiment_type, prog_model)
     try:
         os.makedirs(resdir)
     except OSError:
@@ -111,7 +111,12 @@ def main():
     hw_conf = exp_conf['hardware']
     bench = params['benchmark']
     machine = get_bsc_machine()
-    resdir = create_results_directory(machine, exp_conf['type'], bench['programming_model'])
+    queue = ''
+    if exp_conf['debug']:
+        queue = 'debug'
+    else:
+        queue = 'default'
+    resdir = create_results_directory(machine, queue, exp_conf['type'], bench['programming_model'])
 
     for conf in exp_conf['configurations'] :
         run_campaign(bench, conf, hw_conf, exp_conf['type'], exp_conf['repetitions'],
